@@ -24,5 +24,5 @@ python consistency_checker.py
 3. To run `generate-inst-strategies-comparison-data.py`
 
 ```
-pip install generate-inst-strategies-comparison-data.py
+python generate-inst-strategies-comparison-data.py
 ```
