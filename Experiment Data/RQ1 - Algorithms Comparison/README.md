@@ -16,17 +16,22 @@ These files contain the data and analysis scripts used to evaluate the overheads
 
 ## Steps to run these files:
 
-1. Validate the raw results for test results consistency:
+1. Install python dependendies
+   ```
+   pip install pandas
+   ```
+
+2. Validate the raw results for test results consistency:
    ```bash
    python consistency_checker.py
    ```
 
-2. Parse the filtered results to generate the time results file:
+3. Parse the filtered results to generate the time results file:
    ```bash
    python algos_comparison_time_parser.py
    ```
 
-3. Generate performance analysis macros:
+4. Generate performance analysis macros:
    ```bash
    python generate-algos-comparison-macros.py algos_comparison_consistent_time_results.csv
    ```
