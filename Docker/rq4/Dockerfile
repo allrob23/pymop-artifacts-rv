@@ -38,14 +38,14 @@ ENV PATH="$JAVA_HOME/bin:$PATH"
 WORKDIR /experiment
 
 # Copy all scripts into the container
-COPY run_experiment_rq4.sh scripts/rq4_scripts/
-COPY run_original.sh scripts/rq4_scripts/
-COPY run_pymop.sh scripts/rq4_scripts/
-COPY run_dynapyt.sh scripts/rq4_scripts/
-COPY run_dylin.sh scripts/rq4_scripts/
-COPY run_dynapyt_libs.sh scripts/rq4_scripts/
-COPY -r Specs_libs/ scripts/rq4_scripts/
-COPY projects_evaluated.csv Experiment\ Data/
+COPY scripts/rq4_scripts/run_experiment_rq4.sh .
+COPY scripts/rq4_scripts/run_original.sh .
+COPY scripts/rq4_scripts/run_pymop.sh .
+COPY scripts/rq4_scripts/run_dynapyt.sh .
+COPY scripts/rq4_scripts/run_dylin.sh .
+COPY scripts/rq4_scripts/run_dynapyt_libs.sh .
+COPY scripts/rq4_scripts/Specs_libs/ Specs_libs/
+COPY Experiment_Data/projects_evaluated.csv .
 
 # Make scripts executable
 RUN chmod +x run_*.sh
