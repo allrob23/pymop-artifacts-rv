@@ -1,5 +1,29 @@
-# A Generic and Efficient Runtime Verification Framework for Python and its Large-scale Evaluation
+# A Generic and Efficient Python Runtime Verification System and its Large-scale Evaluation
 
-This repository, created using an anonymous account, contains the artifacts associated with our submission.
+## Appendix
 
-The repository with the complete code will be made public after the paper is accepted.
+The appendix is available [here](appendix.pdf). It contains:
+* A detailed comparison of instrumentation strategies (discussed in Section 3)
+* Our submitted PRs and issues (both accepted and rejected) from RQ3
+
+## Projects and data
+
+This repository contains the following data at locations in the following hyperlinks:
+
+
+## Repository structure
+
+| Directory / File   | Purpose                                                      |
+| ------------------ | ------------------------------------------------------------ |
+| appendix.pdf       | Contains detailed supplementary information discussed in the paper |
+| Experiment data    | Contains project information and experiment data for all RQs |
+
+## Usage
+
+### Prerequisites
+
+* An x86-64 architecture machine
+* Ubuntu 22.04
+* [Docker](https://docs.docker.com/get-docker/)
+
+### Setup
