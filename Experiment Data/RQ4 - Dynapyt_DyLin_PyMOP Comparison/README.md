@@ -14,10 +14,14 @@ These files contain the data and analysis scripts used to evaluate the violation
 
 ## Steps to run these files:
 1. The raw data can be found in `tools_comparison_results.csv`
-2. Run the analysis scripts to generate statistics and LaTeX macros:
+2. Install python dependendies
+   ```
+   pip install pandas matplotlib
+   ```
+3. Run the analysis scripts to generate statistics and LaTeX macros:
    ```bash
    python overheads_analysis.py tools_comparison_results.csv
    python overheads_statistics.py tools_comparison_results.csv
    python violations_analysis.py tools_comparison_results.csv
    ```
-3. The LaTeX files contain the formatted results for inclusion in the paper.
+4. The LaTeX files contain the formatted results for inclusion in the paper.
