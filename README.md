@@ -57,7 +57,7 @@ cd ./Docker/rq1/
 link,sha
 ```
 
-4. Run the experiment using the following command (replace `<max_concurrent_containers>` with the desired number of concurrent containers):
+4. Run the experiment using the following command (replace `<max_concurrent_containers>` with the desired number of concurrent containers.) This will take very long:
 
 ```sh
 python3 ./src/run-experiment.py <max_concurrent_containers>
