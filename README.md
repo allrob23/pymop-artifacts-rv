@@ -14,7 +14,7 @@ This repository contains the following data at locations in the following hyperl
 * [Experiment data for RQ1: Comparison of PyMOP Online Algorithms](Experiment_Data/RQ1%20-%20Algorithms%20Comparison/)
 * [Experiment data for RQ2: Comparison of PyMOP Instrumentation Strategies](Experiment_Data/RQ2%20-%20Instrumentation%20Strategies%20Comparison/)
 * [Experiment data for RQ4: Comparison of DynaPyt, Dylin, and PyMOP](Experiment_Data/RQ4%20-%20Dynapyt_DyLin_PyMOP%20Comparison/)
-* [Experiment data for Discussions](Experiment_Data/Discussions)
+* [Experiment data for Discussions](Experiment_Data/Discussion)
 
 ## Repository Structure
 
@@ -173,7 +173,7 @@ cd ./Docker/Discussion/algorithm-a
    python3 ./src/build-container.py
    ```
 
-3. Place the project links in `project-links.csv` file with the following header (it is pre-populated with the projects we used for this experiment [here](Experiment_Data/Discussions/Offline%20Algorithm/projects_evaluated_algoA.csv)):
+3. Place the project links in `project-links.csv` file with the following header (it is pre-populated with the projects we used for this experiment [here](Experiment_Data/Discussion/Offline%20Algorithm/projects_evaluated_algoA.csv)):
 
 ```csv
 link,sha
