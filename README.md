@@ -10,7 +10,7 @@ The appendix is available [here](appendix.pdf). It contains:
 
 This repository contains the following data at locations in the following hyperlinks:
 
-* [List of projects used in all RQs (including their GitHub URLs and commit SHAs)](Experiment_Data/projects_evaluated)
+* [List of projects used in all RQs (including their GitHub URLs and commit SHAs)](Experiment_Data/projects_evaluated.csv)
 * [Experiment data for RQ1: Comparison of PyMOP Online Algorithms](Experiment_Data/RQ1%20-%20Algorithms%20Comparison/)
 * [Experiment data for RQ2: Comparison of PyMOP Instrumentation Strategies](Experiment_Data/RQ2%20-%20Instrumentation%20Strategies%20Comparison/)
 * [Experiment data for RQ4: Comparison of DynaPyt, Dylin, and PyMOP](Experiment_Data/RQ4%20-%20Dynapyt_DyLin_PyMOP%20Comparison/)
