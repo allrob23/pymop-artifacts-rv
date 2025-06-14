@@ -10,14 +10,9 @@ file_path = "results.csv"
 # Load the result dataset for the comparison experiment
 data = pd.read_csv(file_path)
 
-spec_dict = {"PC-01": "InvalidFunctionComparisonAnalysis",
-             "PC-02": "RiskyFloatComparisonAnalysis",
-             "PC-05": "ItemInListAnalysis",
+spec_dict = {"PC-05": "ItemInListAnalysis",
              "PC-06": "FilesClosedAnalysis",
              "SL-02": "AnyAllMisuseAnalysis",
-             "SL-03": "StringStripAnalysis",
-             "SL-05": "InvalidTypeComparisonAnalysis",
-             "ML-03": "NonFiniteValuesAnalysis",
              "TE-02": "Arrays_Comparable",
              "TE-03": "Console_CloseErrorWriter",
              "TE-04": "Console_CloseReader",
