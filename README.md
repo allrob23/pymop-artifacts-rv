@@ -33,6 +33,50 @@ This repository contains the following data at locations in the following hyperl
 * Ubuntu 22.04
 * [Docker](https://docs.docker.com/get-docker/)
 
+### RQ1: The overheads of PyMOP's monitoring algorithms
+
+#### Setup
+
+This is a Docker-based configuration to run pymop. Follow the steps below to get started:
+
+1. open the right directory
+
+```sh
+cd ./Docker/rq1/
+```
+
+2. Build the Docker image (this might take a while)
+
+   ```sh
+   python3 ./src/build-container.py
+   ```
+
+3. Place the project links in `project-links.csv` file with the following header (it is pre-populated with the projects from Experiment_Data/projects_evaluated.csv):
+
+```csv
+link,sha
+```
+
+4. Run the experiment using the following command (replace `<max_concurrent_containers>` with the desired number of concurrent containers):
+
+```sh
+python3 ./src/run-experiment.py <max_concurrent_containers>
+```
+
+That's it! The script will handle the rest. The results will be saved in the `Docker/rq1/results/` directory.
+While the program is running the file `Docker/rq1/results/runs.csv` will update the run status of each project/algo.
+
+5.  To get the csv of the results you can run
+
+```sh
+bash ./src/organize_output.sh
+python3 ./src/parse-reports.py
+```
+
+#### Results
+
+The results will be in `Docker/rq1/results/results.csv`. This contais detailed information on each run of each project including time, memory, and violations.
+
 ### RQ2: Comparison of PyMOP Instrumentation Strategies
 
 #### Setup
