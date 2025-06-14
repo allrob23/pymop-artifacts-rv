@@ -37,29 +37,29 @@ This repository contains the following data at locations in the following hyperl
 
 #### Setup
 
-This is a Docker-based configuration to run pymop. Follow the steps below to get started:
+This is a Docker-based configuration to run RQ1 experiment. Follow the steps below to get started:
 
-1. open the right directory
+1. Open the right directory in the repo
 
-```sh
+```bash
 cd ./Docker/rq1/
 ```
 
-2. Build the Docker image (this might take a while)
+2. Build the Docker image (this might take a short period of time)
 
-   ```sh
-   python3 ./src/build-container.py
-   ```
+```bash
+python3 ./src/build-container.py
+```
 
-3. Place the project links in `project-links.csv` file with the following header (it is pre-populated with the projects from Experiment_Data/projects_evaluated.csv):
+3. Place the project links in `project-links.csv` file with the following header (it is pre-populated with the projects from [here](Experiment_Data/projects_evaluated.csv):
 
 ```csv
 link,sha
 ```
 
-4. Run the experiment using the following command (replace `<max_concurrent_containers>` with the desired number of concurrent containers.) This will take very long:
+4. Run the experiment using the following command (replace `<max_concurrent_containers>` with the desired number of concurrent containers.) **Note: This experiment might take days to finish.** (If you want to test out PyMOP and the experiment, please reduce the number of projects in `project-links.csv`.):
 
-```sh
+```bash
 python3 ./src/run-experiment.py <max_concurrent_containers>
 ```
 
@@ -68,7 +68,7 @@ While the program is running the file `Docker/rq1/results/runs.csv` will update 
 
 5.  To get the csv of the results you can run
 
-```sh
+```bash
 bash ./src/organize_output.sh
 python3 ./src/parse-reports.py
 ```
