@@ -8,7 +8,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     software-properties-common curl git wget zip rpm vim coreutils \
-    build-essential libssl-dev libffi-dev libxml2-dev \
+    build-essential libssl-dev libffi-dev libxml2-dev uuid-runtime \
     libxslt1-dev zlib1g-dev libkrb5-dev libpq-dev gnupg && \
     add-apt-repository ppa:deadsnakes/ppa && \
     apt-get update && \
@@ -44,6 +44,7 @@ COPY scripts/rq4_scripts/run_pymop.sh .
 COPY scripts/rq4_scripts/run_dynapyt.sh .
 COPY scripts/rq4_scripts/run_dylin.sh .
 COPY scripts/rq4_scripts/run_dynapyt_libs.sh .
+COPY scripts/rq4_scripts/file_to_instrument_generators.py .
 COPY scripts/rq4_scripts/Specs_libs/ Specs_libs/
 COPY Experiment_Data/projects_evaluated.csv .
 
