@@ -69,7 +69,7 @@ The following command will execute the RQ2 experiment with the full project list
 
 After you finish executing the command for a list of projects, all the results will be saved as zip files in the `workspace` folder.
 
-Copy all the zip files into a separate folder (for example, a folder named "unzipped"). Place the [unzip_file.py](scripts/unzip_file.py) script into that folder and execute it (this will unzip all the results into a new folder). Then, place the [rq2_csv_parser.py](scripts/rq2_scripts/rq2_csv_parser.py) and [rq2_violations_parser.py](scripts/rq2_scripts/rq2_violations_parser.py) scripts into the unzipped results folder and execute them in sequence (this will generate `results_processed.csv` that is ready for analysis).
+Copy all the zip files into a separate folder (for example, a folder named `rq2_results`). Place the [unzip_file.py](scripts/unzip_file.py) script into that folder and execute it (this will unzip all the results into a new folder `rq4_results_unzipped`). Then, place the [rq2_csv_parser.py](scripts/rq2_scripts/rq2_csv_parser.py) and [rq2_violations_parser.py](scripts/rq2_scripts/rq2_violations_parser.py) scripts into the unzipped results folder and execute them in sequence (this will generate `results_processed.csv` that is ready for analysis).
 
 ### RQ4: Comparison of DynaPyt, Dylin, and PyMOP
 
@@ -107,4 +107,4 @@ The following command will execute the RQ4 experiment with the full project list
 
 After you finish executing the command for a list of projects, all the results will be saved as zip files in the `workspace` folder.
 
-Copy all the zip files into a separate folder (for example, a folder named "unzipped"). Place the [unzip_file.py](scripts/unzip_file.py) script into that folder and execute it (this will unzip all the results into a new folder). Then, place the [rq4_csv_parser.py](scripts/rq4_scripts/rq4_csv_parser.py) and [rq4_violations_parser.py](scripts/rq4_scripts/rq4_violations_parser.py) scripts into the unzipped results folder and execute them in sequence (this will generate `results_processed.csv` that is ready for analysis).
+Copy all the zip files into a separate folder (for example, a folder named `rq4_results`). Place the [unzip_file.py](scripts/unzip_file.py) script into that folder and execute it (this will unzip all the results into a new folder `rq4_results_unzipped`). Then, place the [rq4_csv_parser.py](scripts/rq4_scripts/rq4_csv_parser.py) and [rq4_violations_parser.py](scripts/rq4_scripts/rq4_violations_parser.py) scripts into the unzipped results folder and execute them in sequence (this will generate `results_processed.csv` that is ready for analysis).
