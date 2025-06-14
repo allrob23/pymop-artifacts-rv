@@ -65,7 +65,7 @@ The following command will execute the RQ4 experiment with the full project list
 ./run_experiment.sh
 ```
 
-### Results
+#### Results
 
 After you finish executing the command for a list of projects, all the results will be saved as zip files in the `workspace` folder.
 

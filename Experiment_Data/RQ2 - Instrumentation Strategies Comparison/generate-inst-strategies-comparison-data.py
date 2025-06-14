@@ -405,16 +405,17 @@ def generate_variables_latex():
         latex += f"\\DefMacro{{TotalInstrTime{strategy}}}{{{row['time_instrumentation']}}}\n"
         latex += f"\\DefMacro{{TotalTestTime{strategy}}}{{{row['test_duration']}}}\n"
 
+    # Removed: This is not correct implemented to calculate the total unique violations detected per strategy.
     # 4. Total Unique Violations Detected per Strategy
-    print(f"\n{'='*80}\n4. Total Unique Violations Detected per Strategy (Bar Plot 2)\n{'='*80}")
-    viol_data = compute_unique_violations(viol_data)
-    viol_sums = viol_data.groupby('type_project')[['unique_violations_count']].sum().reset_index()
-    print(tabulate(viol_sums, headers='keys', tablefmt='psql', showindex=False))
-    for _, row in viol_sums.iterrows():
-        strategy = format_macro_name(row['type_project'])
-        latex += f"\n% Total Unique Violations Detected per Strategy (Bar Plot 2)\n"
-        latex += f"\\DefMacro{{TotalUniqueViolations{strategy}}}{{{row['unique_violations_count']}}}\n"
-        latex += f"\\DefMacro{{text_TotalUniqueViolations{strategy}}}{{{row['unique_violations_count']:,}}}\n"
+    # print(f"\n{'='*80}\n4. Total Unique Violations Detected per Strategy (Bar Plot 2)\n{'='*80}")
+    # viol_data = compute_unique_violations(viol_data)
+    # viol_sums = viol_data.groupby('type_project')[['unique_violations_count']].sum().reset_index()
+    # print(tabulate(viol_sums, headers='keys', tablefmt='psql', showindex=False))
+    # for _, row in viol_sums.iterrows():
+    #     strategy = format_macro_name(row['type_project'])
+    #     latex += f"\n% Total Unique Violations Detected per Strategy (Bar Plot 2)\n"
+    #     latex += f"\\DefMacro{{TotalUniqueViolations{strategy}}}{{{row['unique_violations_count']}}}\n"
+    #     latex += f"\\DefMacro{{text_TotalUniqueViolations{strategy}}}{{{row['unique_violations_count']:,}}}\n"
 
     # 5. Total Passed and Failed Tests per Strategy
     print(f"\n{'='*80}\n5. Total Passed and Failed Tests per Strategy (Bar Plot 3)\n{'='*80}")
