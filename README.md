@@ -152,3 +152,48 @@ The following command will execute the RQ4 experiment with the full project list
 After you finish executing the command for a list of projects, all the results will be saved as zip files in the `workspace` folder.
 
 Copy all the zip files into a separate folder (for example, a folder named `rq4_results`). Place the [unzip_file.py](scripts/unzip_file.py) script into that folder and execute it (this will unzip all the results into a new folder `rq4_results_unzipped`). Then, place the [rq4_csv_parser.py](scripts/rq4_scripts/rq4_csv_parser.py) and [rq4_violations_parser.py](scripts/rq4_scripts/rq4_violations_parser.py) scripts into the unzipped results folder and execute them in sequence (this will generate `results_processed.csv` that is ready for analysis).
+
+
+### Discussion: Algorithm A
+
+#### Setup
+
+Similar to how RQ1 experiment is run, this experiment can be run by followig the steps bellow:
+
+1. open the directory
+
+```sh
+cd ./Docker/Discussion/algorithm-a
+```
+
+2. Build the Docker image (this might take a while)
+
+   ```sh
+   python3 ./src/build-container.py
+   ```
+
+3. Place the project links in `project-links.csv` file with the following header (it is pre-populated with the projects we used for this experiment):
+
+```csv
+link,sha
+```
+
+4. Run the experiment using the following command (replace `<max_concurrent_containers>` with the desired number of concurrent containers.) This will take very long:
+
+```sh
+python3 ./src/run-experiment.py <max_concurrent_containers>
+```
+
+That's it! The script will handle the rest. The results will be saved in the `Docker/Discussion/algorithm-a/results/` directory.
+While the program is running the file `Docker/Discussion/algorithm-a/results/runs.csv` will update the run status of each project/algo.
+
+5.  To get the csv of the results you can run
+
+```sh
+bash ./src/organize_output.sh
+python3 ./src/parse-reports.py
+```
+
+#### Results
+
+The results will be in `Docker/Discussion/algorithm-a/results/results.csv`. This contais detailed information on each run of each project including time, memory, and violations.
