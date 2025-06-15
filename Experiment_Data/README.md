@@ -1,6 +1,6 @@
 # Experiment Data & Scripts
 
-This directory contains all the data and scripts used in the experiments we discussed in the paper, organized by research questions (RQs).
+This directory contains all the data and scripts used in the experiments we discussed in the paper, organized by research questions (RQs) and discussion sections.
 
 ## Directory Structure
 
@@ -10,6 +10,7 @@ This directory contains all the data and scripts used in the experiments we disc
 - `RQ3 - PR & Issues Opened/`: Data and scripts related to pull requests and issues analysis
 - `RQ4 - Dynapyt_DyLin_PyMOP Comparison/`: Data and scripts for comparing Dynapyt, DyLin, and PyMOP
 - `Discussion/Offline Algorithm/`: Data and scripts for comparing Algorithm A with other online algorithms
+- `Discussion/Garbage Collection/`: Data and scripts for comparing the overheads of PyMOP with and without garbage collection
 
 ## Project Information
 
