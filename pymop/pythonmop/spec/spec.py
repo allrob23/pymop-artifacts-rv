@@ -245,8 +245,6 @@ def _get_instrumented_func(func: Callable, spec, parameter_type: Type, target_pa
 
         except Exception as e:
             print("Key errors happened in PyMOP plugin, please check the plugin error messages for more details!", e)
-            import traceback
-            traceback.print_exc()
         
         if instance is None:
             return func(*args, **kwargs)
@@ -268,8 +266,6 @@ def _get_instrumented_func(func: Callable, spec, parameter_type: Type, target_pa
             )
         except Exception as e:
             print("Key errors happened in PyMOP plugin, please check the plugin error messages for more details!", e)
-            import traceback
-            traceback.print_exc()
 
         # Original function
         exception = None
@@ -297,8 +293,6 @@ def _get_instrumented_func(func: Callable, spec, parameter_type: Type, target_pa
             )
         except Exception as e:
             print("Key errors happened in PyMOP plugin, please check the plugin error messages for more details!", e)
-            import traceback
-            traceback.print_exc()
 
         new_func.pythonmop_event_handling_in_progress = False
 
