@@ -119,8 +119,8 @@ The easiest way to get started with PyMOP is using Docker, which ensures all dep
 If you prefer to install PyMOP directly on your system, follow these steps:
 
 1. The following dependencies are required to run PyMOP on your local system:
-   - python3-tk
-   - python3-venv
+   * python3-tk
+   * python3-venv
 
 2. Create and activate a virtual environment (recommended):
    ```bash
@@ -147,7 +147,7 @@ The plugin provides multiple command-line options that allow you to customize ho
 
 ### Command-line option 1:
 
---path: Specifies the path to the folder containing the specifications.
+`--path`: Specifies the path to the folder containing the specifications.
 
 ```bash
 pytest tests --path=PATH
@@ -159,7 +159,7 @@ DEFAULT: When no path is provided, the plugin will run the tests without perform
 
 ### Command-line option 2:
 
---specs: Specifies which specifications to use in the test run.
+`--specs`: Specifies which specifications to use in the test run.
 
 ```bash
 pytest tests --specs=SPEC1,SPEC2
@@ -171,7 +171,7 @@ DEFAULT: When no specifications are specified, all specifications in the folder 
 
 ### Command-line option 3:
 
---algo: Specifies the parametric algorithm PyMOP uses during the test run.
+`--algo`: Specifies the parametric algorithm PyMOP uses during the test run.
 
 ```bash
 pytest tests --algo=D
@@ -181,7 +181,7 @@ Five algorithms are available: `A`, `B`, `C`, `C+`, and `D`. Algorithm `D` is th
 
 ### Command-line option 4:
 
---instrument_strategy: Specifies the instrumentation strategy PyMOP uses during the test run.
+`--instrument_strategy`: Specifies the instrumentation strategy PyMOP uses during the test run.
 
 ```bash
 pytest tests --instrument_strategy=builtin
@@ -193,7 +193,7 @@ Note: When using the `ast` strategy, you must add `PYTHONPATH="PATH TO pymop-art
 
 ### Command-line option 5:
 
---statistics: Prints statistics of the runtime verification results.
+`--statistics`: Prints statistics of the runtime verification results.
 
 ```bash
 pytest tests --statistics
@@ -205,7 +205,7 @@ DEFAULT: When the `--statistics` option is not used, tests will run normally wit
 
 ### Command-line option 6:
 
---statistics_file: Specifies the path to a JSON or text file where the runtime verification statistics will be stored.
+`--statistics_file`: Specifies the path to a JSON or text file where the runtime verification statistics will be stored.
 
 ```bash
 pytest tests --statistics_file=PATH
