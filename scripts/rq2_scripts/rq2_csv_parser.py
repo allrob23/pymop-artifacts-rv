@@ -448,7 +448,7 @@ def main():
                         line['total_events'] = total_events
 
                     # Add the post-run time
-                    line['post_run_time'] = post_run_time
+                    line['post_run_time'] = 0.0
 
                 lines.append(line)
 
@@ -581,7 +581,7 @@ def main():
                         line['total_events'] = total_events
 
                     # Add the post-run time
-                    line['post_run_time'] = post_run_time
+                    line['post_run_time'] = 0.0
 
                 lines.append(line)
 
@@ -713,7 +713,7 @@ def main():
                         line['total_events'] = total_events
 
                     # Add the post-run time
-                    line['post_run_time'] = post_run_time
+                    line['post_run_time'] = 0.0
 
                 lines.append(line)
 
