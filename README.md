@@ -154,7 +154,6 @@ After you finish executing the command for a list of projects, all the results w
 
 Copy all the zip files into a separate folder (for example, a folder named `rq4_results`). Place the [unzip_file.py](scripts/unzip_file.py) script into that folder and execute it (this will unzip all the results into a new folder `rq4_results_unzipped`). Then, place the [rq4_csv_parser.py](scripts/rq4_scripts/rq4_csv_parser.py) and [rq4_violations_parser.py](scripts/rq4_scripts/rq4_violations_parser.py) scripts into the unzipped results folder and execute them in sequence (this will generate `results_processed.csv` that is ready for analysis).
 
-
 ### Discussion: Offline Algorithm
 
 #### Setup
@@ -198,3 +197,41 @@ python3 ./src/parse-reports.py
 #### Results
 
 The results will be in `Docker/Discussion/algorithm-a/results/results.csv`. This contais detailed information on each run of each project including time, memory, and violations.
+
+### Discussion: Garbage Collection
+
+#### Setup
+
+First, you need to build a Docker image (this might take a short period of time). Please run the following command in your terminal:
+
+```bash
+docker build -t pymop-gc -f Docker/Discussion/gc/Dockerfile .
+```
+
+#### Run experiment
+
+Execute the following command to start one Docker instance while mounting the `workspace` folder (in the Docker container) to the same folder locally:
+
+```bash
+docker run -it --rm -v $PWD/workspace:/workspace pymop-gc
+```
+
+Copy all the experiment scripts from the `experiment` folder into the `workspace` folder for future usage:
+
+```bash
+cd ..
+cp -r /experiment/* /workspace/
+cd workspace/
+```
+
+The following command will execute the garbage collection experiment with the full project list. **Note: This experiment might take days to finish.** (If you want to test out PyMOP and the experiment, please reduce the number of projects in `projects_evaluated_gc.csv`.)
+
+```bash
+./run_experiment_gc.sh
+```
+
+#### Results
+
+After you finish executing the command for a list of projects, all the results will be saved as zip files in the `workspace` folder.
+
+Copy all the zip files into a separate folder (for example, a folder named `gc_results`). Place the [unzip_file.py](scripts/unzip_file.py) script into that folder and execute it (this will unzip all the results into a new folder `gc_results_unzipped`). Then, place the [gc_csv_parser.py](scripts/Discussion/gc_scripts/gc_csv_parser.py) and [gc_violations_parser.py](scripts/Discussion/gc_scripts/gc_violations_parser.py) scripts into the unzipped results folder and execute them in sequence (this will generate `results_processed.csv` that is ready for analysis).
