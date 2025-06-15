@@ -118,7 +118,11 @@ The easiest way to get started with PyMOP is using Docker, which ensures all dep
 
 If you prefer to install PyMOP directly on your system, follow these steps:
 
-1. Create and activate a virtual environment (recommended):
+1. The following dependencies are required to run PyMOP on your local system:
+   - python3-tk
+   - python3-venv
+
+2. Create and activate a virtual environment (recommended):
    ```bash
    python -m venv pymop-venv
    source pymop-venv/bin/activate  # On Unix/macOS
@@ -126,7 +130,7 @@ If you prefer to install PyMOP directly on your system, follow these steps:
    .\pymop-venv\Scripts\activate  # On Windows
    ```
 
-2. Clone and install PyMOP:
+3. Clone and install PyMOP:
    ```bash
    git clone https://github.com/allrob23/pymop-artifacts-rv.git
    cd pymop-artifacts-rv/pymop
