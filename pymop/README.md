@@ -1,160 +1,210 @@
-# PythonMOP
+# PyMOP
 
-One Pytest plugin that runs a MOP-style RV tool in Python.
+A Pytest plugin that implements MOP-style Runtime Verification (RV) for Python projects.
+
+## System Requirements
+
+PyMOP requires the following components to be installed on your system:
+
+- **Python**: Version 3.12 or later
+- **Java**: Version 20 or later
+- **Docker**: (optional, but recommended for simplified setup)
+
+## Tutorial
+
+This tutorial demonstrates how to use PyMOP to perform runtime verification on an open-source Python project using Ubuntu Linux. The tutorial walks through installation, setup, and running PyMOP on a real-world example.
+
+### Setup PyMOP with Docker
+
+This is the recommended way to setup PyMOP as it is the easiest way to get started and avoid any dependency issues.
+
+If you don't have Docker installed, follow the instructions [here](https://docs.docker.com/get-docker/) to install Docker.
+
+There is currently one way to run PyMOP with Docker:
+
+1. Building the Docker image from source
+
+   a. Navigate to the `docker_files/demo` folder from the root directory:
+
+   ```bash
+   cd docker_files/demo
+   ```
+
+   b. Build the Docker image using:
+
+   ```bash
+   docker build -t pymop .
+   ```
+
+   This will build the Docker image and tag it as `pymop`.
+
+   c. Run the Docker container using:
+
+   ```bash
+   docker run -it pymop
+   ```
+
+   This will start the Docker container and should include the PyMOP repository and all the dependencies.
+
+   d. Activate the PyMOP virtual environment:
+
+   The PyMOP docker image should have already install PyMOP in the `pymop-venv` virtual environment. You can activate it by running:
+
+   ```bash
+   source pymop-venv/bin/activate
+   ```
+
+   This will activate the PyMOP virtual environment and you can now use PyMOP on any project you want.
+
+### Run PyMOP on a open-source project
+
+This section will guide you through running PyMOP on a open-source project. We'll use the `html2text` project as an example.
+
+To run PyMOP on a open-source project, you need to follow these steps:
+
+1. Set Up Test Project
+   ```bash
+   # Clone the test project (html2text)
+   git clone https://github.com/Alir3z4/html2text.git
+   
+   # Install project dependencies
+   cd html2text
+   pip install .
+   ```
+
+2. Run PyMOP with the `html2text` project using all the specifications in the `pymop-artifacts-rv/pymop/specs-new` folder.
+   ```bash
+   # Run tests with runtime verification enabled
+   pytest test --algo=D --path="$PWD/../pymop-artifacts-rv/pymop/specs-new" --instrument_strategy=builtin
+   ```
+
+### Violation Fixing (if applicable)
+
+If the `PyMOP` finds violations, you can find the code place that violates the specification in the testing report printed out in the terminal.
+
+### Re-run the runtime verification tests with the fixed code
+
+After fixing the code, you can re-run the runtime verification tests with the fixed code using the same command as before.
+
+   ```bash 
+   # Re-run tests with runtime verification enabled
+      pytest test --algo=D --path="$PWD/../pymop-artifacts-rv/pymop/specs-new" --instrument_strategy=builtin
+   ```
 
 ## Installation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install PythonMOP.
+There are two ways to install PyMOP: using Docker (recommended) or installing directly on your system.
 
-### Option 1: Install via pip from PyPI (Not Available For Now)
+### Option 1: Docker Installation (Recommended)
 
-You can install `pytest-pythonmop` directly from the Python Package Index using pip. This is the easiest method and will always give you the latest released version of `pytest-pythonmop`:
+The easiest way to get started with PyMOP is using Docker, which ensures all dependencies are properly set up (as described in the tutorial above):
 
-```bash
-pip install pytest-pythonmop
-```
+1. Install Docker following the [official instructions](https://docs.docker.com/get-docker/)
+2. Build the PyMOP Docker image:
+   ```bash
+   cd docker_files/demo
+   docker build -t pymop .
+   ```
+3. Run the container:
+   ```bash
+   docker run -it pymop
+   ```
+4. Activate the virtual environment inside the container:
+   ```bash
+   source pymop-venv/bin/activate
+   ```
 
-### Option 2: Install from the Source Distribution
+### Option 2: Direct Installation
 
-Alternatively, you can install `pytest-pythonmop` from the source distribution. This might be necessary if you want to make modifications to `pytest-pythonmop`:
+If you prefer to install PyMOP directly on your system, follow these steps:
 
-```bash
-pip install pytest-pythonmop-0.1.0.tar.gz
-```
+1. Create and activate a virtual environment (recommended):
+   ```bash
+   python -m venv pymop-venv
+   source pymop-venv/bin/activate  # On Unix/macOS
+   # or
+   .\pymop-venv\Scripts\activate  # On Windows
+   ```
 
-Please replace `pytest-pythonmop-0.1.0.tar.gz` with the path to the actual file if it is not in your current directory.
+2. Clone and install PyMOP:
+   ```bash
+   git clone https://github.com/allrob23/pymop-artifacts-rv.git
+   cd pymop-artifacts-rv/pymop
+   pip install .
+   ```
 
 ## Usage
 
-After installation, the plugin will automatically be available when you run pytest. Below is an example of how to run PyMOP with an open-source project.
-
-### Create a test folder and set up a Python virtual environment for this experiment
-```bash
-1. mkdir experiment
-2. cd experiment
-3. python -m venv env
-4. source env/bin/activate
-```
-
-### Download and install PyMOP in the test folder
-```bash
-5. git clone --depth=1 https://github.com/SoftEngResearch/mop-with-dynapt
-6. cd mop-with-dynapt
-7. pip install .
-8. rm specs-new/TfFunction_NoSideEffect.py  # This spec has some issues, so we remove it.
-9. cd ..
-```
-
-### Download and install the testing open-source project (Textualize/rich in this case) in the test folder
-```bash
-10. git clone --depth=1 https://github.com/Textualize/rich
-11. cd rich
-12. pip install .
-13. pip install attr  # This dependency is required but missing for some reason.
-```
-
-### Run the tests with PyMOP
-```bash
-14. pytest -rA tests --algo=D --path="$PWD"/../mop-with-dynapt/specs-new/ --statistics --statistics_file=D.json
-```
-
-- `--path` = the folder containing the specs
-- `--algo` = the algorithm used to check violations
-- `--statistics` and `--statistics_file` = create JSON files with statistical checks
-
-When finished, you can see the print in the test output of the violation cases. In addition, 3 files are created with all the information:
-`D-full.json` `D-time.json` and `D-violations.json`
-
+After installation, the plugin will be automatically available when you run pytest on open-source projects.
 
 ## Command-line Options
 
-The plugin provides six command-line options that allows you to specify the way you want to the plugin to be used:
+The plugin provides multiple command-line options that allow you to customize how PyMOP is used:
 
 ### Command-line option 1:
 
---path: Specifies the path to the folder where the specs are stored.
+--path: Specifies the path to the folder containing the specifications.
 
 ```bash
 pytest tests --path=PATH
 ```
 
-Replace `PATH` with the path to the folder of the specs you want to use.
+Replace `PATH` with the path to the folder containing the specifications you want to use.
 
-DEFAULT: When no path is provided, the plugin will run the raw tests without doing any verifications.
+DEFAULT: When no path is provided, the plugin will run the tests without performing any runtime verifications.
 
 ### Command-line option 2:
 
---specs: Specifies the specific specs to be used in the test run.
+--specs: Specifies which specifications to use in the test run.
 
 ```bash
 pytest tests --specs=SPEC1,SPEC2
 ```
 
-Replace `SPEC1`, `SPEC2`... with the name of the specs you want to use.
+Replace `SPEC1`, `SPEC2`... with the names of the specifications you want to use.
 
-EXTRA: Replace `SPEC1,SPEC2` with `all` if you want to use all the specs in the folder.
-
-DEFAULT: When no specs are provided, `all` will be used as default.
+DEFAULT: When no specifications are specified, all specifications in the folder will be used.
 
 ### Command-line option 3:
 
---statistics: Prints out the statistics of runtime verification results.
+--algo: Specifies the parametric algorithm PyMOP uses during the test run.
+
+```bash
+pytest tests --algo=D
+```
+
+Five algorithms are available: `A`, `B`, `C`, `C+`, and `D`. Algorithm `D` is the default algorithm and represents the most complex and comprehensive implementation in PyMOP. You can experiment with other algorithms, though note that there may be performance differences as discussed in our paper.
+
+### Command-line option 4:
+
+--instrument_strategy: Specifies the instrumentation strategy PyMOP uses during the test run.
+
+```bash
+pytest tests --instrument_strategy=builtin
+```
+
+Three options are available: `builtin`, `curse`, and `ast`. Each instrumentation strategy has different benefits and trade-offs. Choose the one that best suits your needs.
+
+Note: When using the `ast` strategy, you must add `PYTHONPATH="PATH TO pymop-artifacts-rv"/pymop/pythonmop/pymop-startup-helper` at the beginning of your pytest command.
+
+### Command-line option 5:
+
+--statistics: Prints statistics of the runtime verification results.
 
 ```bash
 pytest tests --statistics
 ```
 
-When using `--statistics` option, the statistics of runtime verification results including monitors created and events triggered will be printed out.
+When using the `--statistics` option, the plugin will print statistics about the runtime verification results, including monitors created and events triggered.
 
-DEFAULT: When `--statistics` option is not used, tests will be run by Pytest as normal and no monitor statistics will be printed out.
+DEFAULT: When the `--statistics` option is not used, tests will run normally without printing monitor statistics.
 
-### Command-line option 4:
+### Command-line option 6:
 
---statistics_file: Replace `PATH` with the path of a JSON or txt file that you want to store the statistics of runtime verification results.
+--statistics_file: Specifies the path to a JSON or text file where the runtime verification statistics will be stored.
 
 ```bash
 pytest tests --statistics_file=PATH
 ```
 
-DEFAULT: When `--statistics_file` option is not provided, the monitor statistics will be printed out through the terminal.
-
-### Command-line option 5:
-
---noprint: Not print out the violation information during tests runtime.
-
-```bash
-pytest tests --noprint
-```
-
-When using `--noprint` option, the descriptions of the violations will not be printed out during runtime. However, a summary of the violations will still be printed at the end of the test run.
-
-DEFAULT: When `--noprint` option is not used, the violation information will be printed during runtime.
-
-### Command-line option 6:
-
---info: Prints out the descriptions of the existing specs defined by the users.
-
-```bash
-pytest tests --info
-```
-
-When using `--info` option, the descriptions of the specs will be printed out (No test will be run in this case).
-
-DEFAULT: When `--info` option is not used, tests will be run by Pytest as normal.
-
-### Extra helps:
-You can see all command-line options provided by the plugin by running:
-
-```bash
-pytest --help
-```
-
-## Testing examples
-
-There are runnable testing examples in the repository. Please refer to [TESTING.md](examples/TESTING.md)
-
-## Internal Development and Testing Guidelines
-
-If you're a member of the development team, please see the [CONTRIBUTING.md](CONTRIBUTING.md) for further development and test guidelines.
-
-Note: These guidelines are intended for internal use by the development team. They are not meant for external contributors.
+DEFAULT: When the `--statistics_file` option is not provided, the monitor statistics will be printed to the terminal.
