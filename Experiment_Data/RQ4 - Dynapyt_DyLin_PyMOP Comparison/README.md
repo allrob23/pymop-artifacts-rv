@@ -15,7 +15,7 @@ These files contain the data and analysis scripts used to evaluate the violation
 ## Steps to run these files:
 1. The raw data can be found in `tools_comparison_results.csv`
 
-2. Install python dependendies
+2. Install Python dependendies
    ```
    pip install pandas matplotlib
    ```

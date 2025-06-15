@@ -1,6 +1,6 @@
 # Discussion: The overheads of PyMOP's offline algorithm (Algorithm A)
 
-## Files included for this RQ:
+## Files included for this analysis:
 
 - `algoA_results.csv`: Raw performance measurements for Algorithm A and other online algorithms across all test projects
 - `projects_evaluated_algoA.csv`: List of projects that were evaluated using Algorithm A and other online algorithms
@@ -11,7 +11,7 @@ These files contain the data and analysis scripts used to evaluate the overheads
 
 ## Steps to run these files:
 
-1. Install python dependencies
+1. Install Python dependencies
    ```
    pip install pandas
    ```

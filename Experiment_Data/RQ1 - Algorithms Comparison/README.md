@@ -16,7 +16,7 @@ These files contain the data and analysis scripts used to evaluate the overheads
 
 ## Steps to run these files:
 
-1. Install python dependendies
+1. Install Python dependendies
    ```
    pip install pandas
    ```

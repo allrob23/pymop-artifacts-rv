@@ -9,7 +9,7 @@
 
 ## Steps to run these files:
 
-1. Install python dependendies
+1. Install Python dependendies
 
 ```
 pip install pandas tabulate
