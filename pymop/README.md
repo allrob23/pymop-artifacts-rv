@@ -58,24 +58,24 @@ There is currently one way to run PyMOP with Docker:
 
 ### Run PyMOP on a open-source project
 
-This section will guide you through running PyMOP on a open-source project. We'll use the `html2text` project as an example.
+This section will guide you through running PyMOP on a open-source project. We'll use the `gdipak` project as an example.
 
 To run PyMOP on a open-source project, you need to follow these steps:
 
 1. Set Up Test Project
    ```bash
-   # Clone the test project (html2text)
-   git clone https://github.com/Alir3z4/html2text.git
+   # Clone the test project (gdipak)
+   git clone https://github.com/2pair/gdipak
    
    # Install project dependencies
-   cd html2text
+   cd gdipak
    pip install .
    ```
 
-2. Run PyMOP with the `html2text` project using all the specifications in the `pymop-artifacts-rv/pymop/specs-new` folder.
+2. Run PyMOP with the `gdipak` project using all the specifications in the `pymop-artifacts-rv/pymop/specs-new` folder.
    ```bash
    # Run tests with runtime verification enabled
-   pytest test --algo=D --path="$PWD/../pymop-artifacts-rv/pymop/specs-new" --instrument_strategy=builtin
+   pytest tests --algo=D --path="$PWD/../pymop-artifacts-rv/pymop/specs-new" --instrument_strategy=builtin
    ```
 
 ### Violation Fixing (if applicable)
@@ -88,7 +88,7 @@ After fixing the code, you can re-run the runtime verification tests with the fi
 
    ```bash 
    # Re-run tests with runtime verification enabled
-      pytest test --algo=D --path="$PWD/../pymop-artifacts-rv/pymop/specs-new" --instrument_strategy=builtin
+   pytest tests --algo=D --path="$PWD/../pymop-artifacts-rv/pymop/specs-new" --instrument_strategy=builtin
    ```
 
 ## Installation
