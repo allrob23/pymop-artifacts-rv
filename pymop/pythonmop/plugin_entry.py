@@ -361,8 +361,7 @@ def _spec_names_extracting(folder_path: str, strategy) -> List[str]:
         'UnsafeMapIterator',
         'UnsafeListIterator',
         'PyDocs_MustSortBeforeGroupBy',
-        'Arrays_SortBeforeBinarySearch',
-        'InPlaceSortAnalysis'
+        'Arrays_SortBeforeBinarySearch'
     ]
 
     # Declare one variable for storing the spec name extracted.
