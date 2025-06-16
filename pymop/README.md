@@ -95,7 +95,7 @@ To run PyMOP on a open-source project, you need to follow these steps:
 
 3. Violation Fixing (if applicable)
 
-If the `PyMOP` finds violations, you can find the code place that violates the specification in the testing report printed out in the terminal.
+   If the `PyMOP` finds violations, you can find the code place that violates the specification in the testing report printed out in the terminal.
 
 ### Re-run the runtime verification tests with the fixed code
 
