@@ -73,23 +73,33 @@ To run PyMOP on a open-source project, you need to follow these steps:
    ```
 
 2. Run PyMOP with the `gdipak` project using all the specifications in the `pymop-artifacts-rv/pymop/specs-new` folder.
+
+   You can run PyMOP using one of the following commands:
+
+   a. Run with **monkey patching + curse** instrumentation strategy **(recommended)**:
    ```bash
-   # Run tests with runtime verification enabled
+   pytest tests --algo=D --path="$PWD/../pymop-artifacts-rv/pymop/specs-new"
+   ```
+
+   b. Run with **monkey patching** instrumentation strategy:
+   ```bash
    pytest tests --algo=D --path="$PWD/../pymop-artifacts-rv/pymop/specs-new" --instrument_strategy=builtin
    ```
 
-### Violation Fixing (if applicable)
+   c. Run with **monkey patching + AST** instrumentation strategy:
+   ```bash
+   PYTHONPATH="$PWD/../pymop-artifacts-rv/pymop/pythonmop/pymop-startup-helper" pytest tests --algo=D --path="$PWD/../pymop-artifacts-rv/pymop/specs-new" --instrument_strategy=ast
+   ```
+
+   > **Note:** The **monkey patching + curse** strategy (default) is recommended for most cases as it provides the best balance of performance and reliability.
+
+3. Violation Fixing (if applicable)
 
 If the `PyMOP` finds violations, you can find the code place that violates the specification in the testing report printed out in the terminal.
 
 ### Re-run the runtime verification tests with the fixed code
 
-After fixing the code, you can re-run the runtime verification tests with the fixed code using the same command as before.
-
-   ```bash 
-   # Re-run tests with runtime verification enabled
-   pytest tests --algo=D --path="$PWD/../pymop-artifacts-rv/pymop/specs-new" --instrument_strategy=builtin
-   ```
+After fixing the code, you can re-run the tests using the same command from Step 2 (e.g., `pytest tests --algo=D --path="$PWD/../pymop-artifacts-rv/pymop/specs-new"` for the recommended strategy).
 
 ## Installation
 
@@ -184,12 +194,12 @@ Five algorithms are available: `A`, `B`, `C`, `C+`, and `D`. Algorithm `D` is th
 `--instrument_strategy`: Specifies the instrumentation strategy PyMOP uses during the test run.
 
 ```bash
-pytest tests --instrument_strategy=builtin
+pytest tests --instrument_strategy=curse
 ```
 
-Three options are available: `builtin`, `curse`, and `ast`. Each instrumentation strategy has different benefits and trade-offs. Choose the one that best suits your needs.
+Three options are available: `builtin`, `curse`, and `ast`. Each instrumentation strategy has different benefits and trade-offs. Choose the one that best suits your needs (`curse` is used by default).
 
-Note: When using the `ast` strategy, you must add `PYTHONPATH="PATH TO pymop-artifacts-rv"/pymop/pythonmop/pymop-startup-helper` at the beginning of your pytest command.
+> **Note:** When using the `ast` strategy, you must add `PYTHONPATH="PATH TO pymop-artifacts-rv"/pymop/pythonmop/pymop-startup-helper` at the beginning of your pytest command.
 
 ### Command-line option 5:
 
