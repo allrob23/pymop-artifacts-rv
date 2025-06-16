@@ -26,6 +26,8 @@ This repository contains the following data at locations in the following hyperl
 | pymop              | Contains the source code of PyMOP                            |
 | scripts            | Contains scripts to run all RQ and Discussion experiments and parse the results |
 
+> **Notes:** The PyMOP README is available at [here](pymop/README.md) in the pymop folder.
+
 ## Usage
 
 ### Prerequisites
